@@ -17,10 +17,14 @@ myButton.onclick = function() {
     setUserName();
   }
 
-function setUserName() {
+  function setUserName() {
     let myName = prompt('Please enter your name.');
-    localStorage.setItem('name', myName);
-    myHeading.textContent = 'Mozilla is cool, ' + myName;
+    if(!myName) {
+      setUserName();
+    } else {
+      localStorage.setItem('name', myName);
+      myHeading.textContent = 'Mozilla is cool, ' + myName;
+    }
   }
 
   if(!localStorage.getItem('name')) {
